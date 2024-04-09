@@ -21,8 +21,8 @@ html, body {
   }
 
   #start-button {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     border-radius: 5px;
     border-style: solid;
     border-color: white;
