@@ -31,6 +31,17 @@ html, body {
     width: 150px;
     height: 40px;
   }
+  
+  #instruction-button {
+    font-size: 20px;
+    color: white;
+    background-color: rgb(255, 119, 46);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: white;
+    width: 150px;
+    height: 40px;
+  }
 
   #kinect-window {
     display: flex;
