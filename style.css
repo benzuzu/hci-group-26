@@ -12,8 +12,7 @@ html, body {
   }
 
   #score-container {
-    text-color: white;
-    font-size: 40px;
+    font-size: 30px;
     background-color: #FFAC6B;
     display: flex;
     justify-content: space-around;
@@ -117,3 +116,8 @@ html, body {
   .active-down {
     border-top: 15px solid #c1f80a;
   }
+
+  h1 {
+    color: white;
+  }
+
