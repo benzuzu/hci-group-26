@@ -12,7 +12,7 @@ html, body {
   }
 
   #score-container {
-    font-size: 30px;
+    font-size: 24px;
     background-color: #FFAC6B;
     display: flex;
     justify-content: space-around;
@@ -22,8 +22,8 @@ html, body {
   }
 
   #start-button {
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: rgb(255, 119, 46);
     border-radius: 5px;
     border-style: solid;
     border-color: white;
