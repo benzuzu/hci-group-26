@@ -12,6 +12,8 @@ html, body {
   }
 
   #score-container {
+    text-color: white;
+    font-size: 40px;
     background-color: #FFAC6B;
     display: flex;
     justify-content: space-around;
