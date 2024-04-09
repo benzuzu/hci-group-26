@@ -25,7 +25,7 @@ html, body {
     font-size: 20px;
     color: white;
     background-color: rgb(255, 119, 46);
-    border-radius: 5px;
+    border-radius: 10px;
     border-style: solid;
     border-color: white;
     width: 300px;
@@ -36,7 +36,7 @@ html, body {
     font-size: 20px;
     color: white;
     background-color: rgb(255, 119, 46);
-    border-radius: 5px;
+    border-radius: 10px;
     border-style: solid;
     border-color: white;
     width: 300px;
