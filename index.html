@@ -21,6 +21,29 @@
         <img class="twod" height="700px"/>
       </div>
     </div>
+    <div class="popup-overlay" id="popup">
+      <div class="popup-content">
+          <h2>Instructions</h2>
+          <p>Include your game instructions here.</p>
+          <button onclick="closePopup()">Close</button>
+      </div>
+    </div>
     <script src="sketch.js"></script>
+    <script>
+      // Function to open the popup
+      function openPopup() {
+          document.getElementById("popup").style.display = "flex";
+      }
+  
+      // Function to close the popup
+      function closePopup() {
+          document.getElementById("popup").style.display = "none";
+      }
+  
+      // Add event listener to instruction button within score container
+      document.getElementById("instruction-button").addEventListener("click", function() {
+          openPopup();
+      });
+  </script>
   </body>
 </html>
