@@ -13,46 +13,76 @@ var frames = {
     var url = "ws://" + host + "/frames";
     frames.socket = new WebSocket(url);
     frames.socket.onmessage = function (event) {
-      var command = frames.get_left_wrist_command(JSON.parse(event.data));
-      if (command !== null) {
-        sendWristCommand(command);
+      var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
+      var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
+      if (right_wrist_raised) {
+        console.log("person " + right_wrist_raised + " right wrist raised!");
+        document.querySelector('#instructions').removeAttribute('display');
+        document.querySelector('#instructions').setAttribute('hidden', '');
+      }
+      if (left_wrist_raised) {
+        console.log("person " + left_wrist_raised + " left wrist raised!");
+        document.querySelector('#instructions').removeAttribute('hidden');
+        document.querySelector('#instructions').setAttribute('display', 'flex');
       }
     }
   },
 
-  get_left_wrist_command: function (frame) {
-    var command = null;
+  is_right_wrist_raised: function (frame) {
+    // console.log(frame);
     if (frame.people.length < 1) {
-      return command;
+      return false;
     }
 
     // Normalize by subtracting the root (pelvis) joint coordinates
-    var pelvis_x = frame.people[0].joints[0].position.x;
-    var pelvis_y = frame.people[0].joints[0].position.y;
-    var pelvis_z = frame.people[0].joints[0].position.z;
-    var left_wrist_x = (frame.people[0].joints[7].position.x - pelvis_x) * -1;
-    var left_wrist_y = (frame.people[0].joints[7].position.y - pelvis_y) * -1;
-    var left_wrist_z = (frame.people[0].joints[7].position.z - pelvis_z) * -1;
+    for (var i = 0; i < frame.people.length; i++) {
+      var pelvis_x = frame.people[i].joints[0].position.x;
+      var pelvis_y = frame.people[i].joints[0].position.y;
+      var pelvis_z = frame.people[i].joints[0].position.z;
+      var right_wrist_x = (frame.people[i].joints[14].position.x - pelvis_x) * -1;
+      var right_wrist_y = (frame.people[i].joints[14].position.y - pelvis_y) * -1;
+      var right_wrist_z = (frame.people[i].joints[14].position.z - pelvis_z) * -1;
 
-    if (left_wrist_z < 100) {
-      return command;
-    }
-
-    if (left_wrist_x < 200 && left_wrist_x > -200) {
-      if (left_wrist_y > 500) {
-        command = 73; // UP
-      } else if (left_wrist_y < 100) {
-        command = 75; // DOWN
+      if (right_wrist_z < 100) {
+        continue;
       }
-    } else if (left_wrist_y < 500 && left_wrist_y > 100) {
-      if (left_wrist_x > 200) {
-        command = 76; // RIGHT
-      } else if (left_wrist_x < -200) {
-        command = 74; // LEFT
+
+      if (right_wrist_x < 200 && right_wrist_x > -200) {
+        if (right_wrist_y > 500) {
+          return i;
+        }
       }
     }
-    return command;
-  }
+    return false;
+  },
+
+  is_left_wrist_raised: function (frame) {
+    // console.log(frame);
+    if (frame.people.length < 1) {
+      return false;
+    }
+
+    // Normalize by subtracting the root (pelvis) joint coordinates
+    for (var i = 0; i < frame.people.length; i++) {
+      var pelvis_x = frame.people[i].joints[0].position.x;
+      var pelvis_y = frame.people[i].joints[0].position.y;
+      var pelvis_z = frame.people[i].joints[0].position.z;
+      var left_wrist_x = (frame.people[i].joints[7].position.x - pelvis_x) * -1;
+      var left_wrist_y = (frame.people[i].joints[7].position.y - pelvis_y) * -1;
+      var left_wrist_z = (frame.people[i].joints[7].position.z - pelvis_z) * -1;
+
+      if (left_wrist_z < 100) {
+        continue;
+      }
+
+      if (left_wrist_x < 200 && left_wrist_x > -200) {
+        if (left_wrist_y > 500) {
+          return i;
+        }
+      }
+    }
+    return false;
+  },
 };
 
 var twod = {
@@ -270,6 +300,5 @@ function sendWristCommand(command) {
       }
       break;
   }
-  console.log(direction);
 }
 

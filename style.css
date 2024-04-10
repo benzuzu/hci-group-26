@@ -52,6 +52,16 @@ html, body {
     grid-row: 2/3;
   }
 
+  #instructions {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    background-color: #2f885d;
+    grid-column: 1/1;
+    grid-row: 2/3;
+  }
+
   .hands {
     height: 100px;
     background-color: #b8937a;
