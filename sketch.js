@@ -21,28 +21,32 @@ var frames = {
         if (left_wrist_raised) {
           console.log("person " + left_wrist_raised + " left wrist raised!");
           document.querySelector('#instructions').removeAttribute('hidden');
+          document.querySelector('#kinect-window').setAttribute('hidden', '');
           current_page = 'instructions';
         }
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (right_wrist_raised) {
           console.log("person " + right_wrist_raised + " right wrist raised!");
-          document.querySelector('#game').setAttribute('hidden', '');
+          document.querySelector('#game').removeAttribute('hidden');
+          document.querySelector('#kinect-window').setAttribute('hidden', '');
           document.querySelector('h1').textContent = 'Cover part of the square with your body!';
           var buttons = document.querySelectorAll('.button');
           buttons.forEach(function(button) {
             button.setAttribute('hidden', '');
           });
           current_page = 'game';
+          //placeBoxRandomly();
         }
       } else if (current_page == 'instructions') {
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (right_wrist_raised) {
           console.log("person " + right_wrist_raised + " right wrist raised!");
           document.querySelector('#instructions').setAttribute('hidden', '');
+          document.querySelector('#kinect-window').removeAttribute('hidden');
           current_page = 'home';
         }
       } else if (current_page == 'game') {
-        placeBoxRandomly();
+        
       }
     }
   },
@@ -104,6 +108,18 @@ var frames = {
     }
     return false;
   },
+
+  placeBoxRandomly() {
+    var box = document.getElementById('box');
+    var maxX = window.innerWidth - box.offsetWidth;
+    var maxY = window.innerHeight - box.offsetHeight;
+    
+    var randomX = Math.random() * maxX;
+    var randomY = Math.random() * maxY;
+    
+    box.style.left = randomX + 'px';
+    box.style.top = randomY + 'px';
+  }
 };
 
 var twod = {
@@ -322,16 +338,3 @@ function sendWristCommand(command) {
       break;
   }
 }
-
-function placeBoxRandomly() {
-  var box = document.getElementById('box');
-  var maxX = window.innerWidth - box.offsetWidth;
-  var maxY = window.innerHeight - box.offsetHeight;
-  
-  var randomX = Math.random() * maxX;
-  var randomY = Math.random() * maxY;
-  
-  box.style.left = randomX + 'px';
-  box.style.top = randomY + 'px';
-}
-
