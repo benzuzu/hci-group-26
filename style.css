@@ -42,7 +42,7 @@ html, body {
   }
 
   #instructions {
-    /* display: flex; */
+    display: flex;
     font-family: Arial, sans-serif;
     color: white;
     justify-content: center;
@@ -55,7 +55,7 @@ html, body {
   }
 
   #game {
-    /* display: flex; */
+    display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
