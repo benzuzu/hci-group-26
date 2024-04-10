@@ -1,10 +1,12 @@
 // Adapted from https://p5js.org/examples/interaction-snake-game.html
 //
-var host = "localhost:4444";
+var host = "cpsc484-03.stdusr.yale.internal:8888";
 $(document).ready(function() {
   frames.start();
   twod.start();
 });
+
+var current_page = 'home';
 
 var frames = {
   socket: null,
@@ -13,17 +15,37 @@ var frames = {
     var url = "ws://" + host + "/frames";
     frames.socket = new WebSocket(url);
     frames.socket.onmessage = function (event) {
-      var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
-      var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
-      if (right_wrist_raised) {
-        console.log("person " + right_wrist_raised + " right wrist raised!");
-        document.querySelector('#instructions').removeAttribute('display');
-        document.querySelector('#instructions').setAttribute('hidden', '');
-      }
-      if (left_wrist_raised) {
-        console.log("person " + left_wrist_raised + " left wrist raised!");
-        document.querySelector('#instructions').removeAttribute('hidden');
-        document.querySelector('#instructions').setAttribute('display', 'flex');
+      if (current_page == 'home') {
+        var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
+        var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
+        if (left_wrist_raised) {
+          console.log("person " + left_wrist_raised + " left wrist raised!");
+          document.querySelector('#instructions').removeAttribute('hidden');
+          // document.querySelector('#instructions').setAttribute('display', 'flex');
+          current_page = 'instructions';
+        }
+        var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
+        if (right_wrist_raised) {
+          console.log("person " + right_wrist_raised + " right wrist raised!");
+          // document.querySelector('#game').display = 'none';
+          document.querySelector('#game').setAttribute('hidden', '');
+          document.querySelector('h1').textContent = 'Cover part of the square with your body!';
+          var buttons = document.querySelectorAll('.button');
+          buttons.forEach(function(button) {
+            button.setAttribute('hidden', '');
+            // button.removeAttribute.display = 'none';
+          });
+
+          current_page = 'game';
+        }
+      } else if (current_page == 'instructions') {
+        var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
+        if (right_wrist_raised) {
+          console.log("person " + right_wrist_raised + " right wrist raised!");
+          // document.querySelector('#instructions').removeAttribute('display');
+          document.querySelector('#instructions').setAttribute('hidden', '');
+          current_page = 'home';
+        }
       }
     }
   },
@@ -38,18 +60,21 @@ var frames = {
     for (var i = 0; i < frame.people.length; i++) {
       var pelvis_y = frame.people[i].joints[0].position.y;
       var pelvis_z = frame.people[i].joints[0].position.z;
+      var pelvis_x = frame.people[i].joints[0].position.x;
       var right_wrist_y = (frame.people[i].joints[14].position.y - pelvis_y) * -1;
       var right_wrist_z = (frame.people[i].joints[14].position.z - pelvis_z) * -1;
-      if (i == 1) {
-        console.log("PERSON " + i, right_wrist_y, right_wrist_z);
-      }
+      var right_wrist_x = (frame.people[i].joints[14].position.x - pelvis_x) * -1;
+      console.log("PERSON " + i, right_wrist_x, right_wrist_y, right_wrist_z);
 
       if (right_wrist_z < 100) {
         continue;
       }
 
-      if (right_wrist_y > 800) {
-        return i;
+
+      if (right_wrist_x < 300 && right_wrist_x > -50) {
+        if (right_wrist_y > 500) {
+          return i + 1;
+        }
       }
     }
     return false;
@@ -65,15 +90,21 @@ var frames = {
     for (var i = 0; i < frame.people.length; i++) {
       var pelvis_y = frame.people[i].joints[0].position.y;
       var pelvis_z = frame.people[i].joints[0].position.z;
+      var pelvis_x = frame.people[i].joints[0].position.x;
       var left_wrist_y = (frame.people[i].joints[7].position.y - pelvis_y) * -1;
       var left_wrist_z = (frame.people[i].joints[7].position.z - pelvis_z) * -1;
+      var left_wrist_x = (frame.people[i].joints[7].position.x - pelvis_x) * -1;
+      console.log("PERSON " + i, left_wrist_x, left_wrist_y, left_wrist_z);
 
       if (left_wrist_z < 100) {
         continue;
       }
 
-      if (left_wrist_y > 800) {
-        return i;
+
+      if (left_wrist_x < 50 && left_wrist_x > -300) {
+        if (left_wrist_y > 500) {
+          return i + 1;
+        }
       }
     }
     return false;
