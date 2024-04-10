@@ -29,7 +29,7 @@ html, body {
     border-style: solid;
     border-color: white;
     width: 300px;
-    height: 100px;
+    height: 40px;
   }
 
   #instruction-button {
@@ -40,7 +40,7 @@ html, body {
     border-style: solid;
     border-color: white;
     width: 300px;
-    height: 100px;
+    height: 40px;
   }
 
   #kinect-window {
