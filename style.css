@@ -54,6 +54,8 @@ html, body {
 
   #instructions {
     /* display: flex; */
+    font-family: Arial, sans-serif;
+    color: white;
     justify-content: center;
     align-items: center;
     font-size: 24px;
