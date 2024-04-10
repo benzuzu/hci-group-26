@@ -21,18 +21,7 @@ html, body {
     grid-row: 1/2;
   }
 
-  #start-button {
-    font-size: 20px;
-    color: white;
-    background-color: rgb(255, 119, 46);
-    border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    width: 300px;
-    height: 40px;
-  }
-
-  #instruction-button {
+  .button {
     font-size: 20px;
     color: white;
     background-color: rgb(255, 119, 46);
