@@ -6,6 +6,8 @@ $(document).ready(function() {
   twod.start();
 });
 
+var current_page = 'home';
+
 var frames = {
   socket: null,
 
@@ -13,17 +15,23 @@ var frames = {
     var url = "ws://" + host + "/frames";
     frames.socket = new WebSocket(url);
     frames.socket.onmessage = function (event) {
-      var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
-      var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
-      if (right_wrist_raised) {
-        console.log("person " + right_wrist_raised + " right wrist raised!");
-        document.querySelector('#instructions').removeAttribute('display');
-        document.querySelector('#instructions').setAttribute('hidden', '');
-      }
-      if (left_wrist_raised) {
-        console.log("person " + left_wrist_raised + " left wrist raised!");
-        document.querySelector('#instructions').removeAttribute('hidden');
-        document.querySelector('#instructions').setAttribute('display', 'flex');
+      if (current_page == 'home') {
+        var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
+        var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
+        if (left_wrist_raised) {
+          console.log("person " + left_wrist_raised + " left wrist raised!");
+          document.querySelector('#instructions').removeAttribute('hidden');
+          document.querySelector('#instructions').setAttribute('display', 'flex');
+          current_page = 'instructions';
+        }
+      } else if (current_page == 'instructions') {
+        var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
+        if (right_wrist_raised) {
+          console.log("person " + right_wrist_raised + " right wrist raised!");
+          document.querySelector('#instructions').removeAttribute('display');
+          document.querySelector('#instructions').setAttribute('hidden', '');
+          current_page = 'home';
+        }
       }
     }
   },
@@ -36,20 +44,22 @@ var frames = {
 
     // Normalize by subtracting the root (pelvis) joint coordinates
     for (var i = 0; i < frame.people.length; i++) {
-      var pelvis_x = frame.people[i].joints[0].position.x;
       var pelvis_y = frame.people[i].joints[0].position.y;
       var pelvis_z = frame.people[i].joints[0].position.z;
-      var right_wrist_x = (frame.people[i].joints[14].position.x - pelvis_x) * -1;
+      var pelvis_x = frame.people[i].joints[0].position.x;
       var right_wrist_y = (frame.people[i].joints[14].position.y - pelvis_y) * -1;
       var right_wrist_z = (frame.people[i].joints[14].position.z - pelvis_z) * -1;
+      var right_wrist_x = (frame.people[i].joints[14].position.x - pelvis_x) * -1;
+      console.log("PERSON " + i, right_wrist_x, right_wrist_y, right_wrist_z);
 
       if (right_wrist_z < 100) {
         continue;
       }
 
-      if (right_wrist_x < 200 && right_wrist_x > -200) {
+
+      if (right_wrist_x < 300 && right_wrist_x > -50) {
         if (right_wrist_y > 500) {
-          return i;
+          return i + 1;
         }
       }
     }
@@ -64,20 +74,22 @@ var frames = {
 
     // Normalize by subtracting the root (pelvis) joint coordinates
     for (var i = 0; i < frame.people.length; i++) {
-      var pelvis_x = frame.people[i].joints[0].position.x;
       var pelvis_y = frame.people[i].joints[0].position.y;
       var pelvis_z = frame.people[i].joints[0].position.z;
-      var left_wrist_x = (frame.people[i].joints[7].position.x - pelvis_x) * -1;
+      var pelvis_x = frame.people[i].joints[0].position.x;
       var left_wrist_y = (frame.people[i].joints[7].position.y - pelvis_y) * -1;
       var left_wrist_z = (frame.people[i].joints[7].position.z - pelvis_z) * -1;
+      var left_wrist_x = (frame.people[i].joints[7].position.x - pelvis_x) * -1;
+      console.log("PERSON " + i, left_wrist_x, left_wrist_y, left_wrist_z);
 
       if (left_wrist_z < 100) {
         continue;
       }
 
-      if (left_wrist_x < 200 && left_wrist_x > -200) {
+
+      if (left_wrist_x < 50 && left_wrist_x > -300) {
         if (left_wrist_y > 500) {
-          return i;
+          return i + 1;
         }
       }
     }
