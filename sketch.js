@@ -297,7 +297,7 @@ function sendWristCommand(command) {
   }
 }
 
-function placeSquareRandomly() {
+function placeBoxRandomly() {
   var box = document.getElementById('box');
   var maxX = window.innerWidth - box.offsetWidth;
   var maxY = window.innerHeight - box.offsetHeight;
