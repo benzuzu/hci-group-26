@@ -36,21 +36,20 @@ var frames = {
 
     // Normalize by subtracting the root (pelvis) joint coordinates
     for (var i = 0; i < frame.people.length; i++) {
-      var pelvis_x = frame.people[i].joints[0].position.x;
       var pelvis_y = frame.people[i].joints[0].position.y;
       var pelvis_z = frame.people[i].joints[0].position.z;
-      var right_wrist_x = (frame.people[i].joints[14].position.x - pelvis_x) * -1;
       var right_wrist_y = (frame.people[i].joints[14].position.y - pelvis_y) * -1;
       var right_wrist_z = (frame.people[i].joints[14].position.z - pelvis_z) * -1;
+      if (i == 1) {
+        console.log("PERSON " + i, right_wrist_y, right_wrist_z);
+      }
 
       if (right_wrist_z < 100) {
         continue;
       }
 
-      if (right_wrist_x < 200 && right_wrist_x > -200) {
-        if (right_wrist_y > 500) {
-          return i;
-        }
+      if (right_wrist_y > 800) {
+        return i;
       }
     }
     return false;
@@ -64,10 +63,8 @@ var frames = {
 
     // Normalize by subtracting the root (pelvis) joint coordinates
     for (var i = 0; i < frame.people.length; i++) {
-      var pelvis_x = frame.people[i].joints[0].position.x;
       var pelvis_y = frame.people[i].joints[0].position.y;
       var pelvis_z = frame.people[i].joints[0].position.z;
-      var left_wrist_x = (frame.people[i].joints[7].position.x - pelvis_x) * -1;
       var left_wrist_y = (frame.people[i].joints[7].position.y - pelvis_y) * -1;
       var left_wrist_z = (frame.people[i].joints[7].position.z - pelvis_z) * -1;
 
@@ -75,10 +72,8 @@ var frames = {
         continue;
       }
 
-      if (left_wrist_x < 200 && left_wrist_x > -200) {
-        if (left_wrist_y > 500) {
-          return i;
-        }
+      if (left_wrist_y > 800) {
+        return i;
       }
     }
     return false;
