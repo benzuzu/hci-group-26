@@ -1,6 +1,6 @@
 // Adapted from https://p5js.org/examples/interaction-snake-game.html
 //
-var host = "localhost:4444";
+var host = "cpsc484-03.stdusr.yale.internal:8888";
 $(document).ready(function() {
   frames.start();
   twod.start();
@@ -23,6 +23,13 @@ var frames = {
           document.querySelector('#instructions').removeAttribute('hidden');
           document.querySelector('#instructions').setAttribute('display', 'flex');
           current_page = 'instructions';
+        }
+        var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
+        if (right_wrist_raised) {
+          console.log("person " + right_wrist_raised + " right wrist raised!");
+          document.querySelector('#game').removeAttribute('display');
+          document.querySelector('#game').setAttribute('hidden', '');
+          current_page = 'game';
         }
       } else if (current_page == 'instructions') {
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
