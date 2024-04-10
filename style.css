@@ -63,6 +63,12 @@ html, body {
     grid-row: 2/3;
   }
 
+  #box {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+  }
+
   .hands {
     height: 100px;
     background-color: #b8937a;
