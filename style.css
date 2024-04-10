@@ -74,6 +74,12 @@ html, body {
     grid-row: 2/3;
   }
 
+  #box {
+    height: 300px;
+    width: 300px;
+    background-color: white;
+  }
+
   .hands {
     height: 100px;
     background-color: #b8937a;
