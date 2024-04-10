@@ -21,28 +21,23 @@ var frames = {
         if (left_wrist_raised) {
           console.log("person " + left_wrist_raised + " left wrist raised!");
           document.querySelector('#instructions').removeAttribute('hidden');
-          // document.querySelector('#instructions').setAttribute('display', 'flex');
           current_page = 'instructions';
         }
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (right_wrist_raised) {
           console.log("person " + right_wrist_raised + " right wrist raised!");
-          // document.querySelector('#game').display = 'none';
           document.querySelector('#game').setAttribute('hidden', '');
           document.querySelector('h1').textContent = 'Cover part of the square with your body!';
           var buttons = document.querySelectorAll('.button');
           buttons.forEach(function(button) {
             button.setAttribute('hidden', '');
-            // button.removeAttribute.display = 'none';
           });
-
           current_page = 'game';
         }
       } else if (current_page == 'instructions') {
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (right_wrist_raised) {
           console.log("person " + right_wrist_raised + " right wrist raised!");
-          // document.querySelector('#instructions').removeAttribute('display');
           document.querySelector('#instructions').setAttribute('hidden', '');
           current_page = 'home';
         }
@@ -53,7 +48,6 @@ var frames = {
   },
 
   is_right_wrist_raised: function (frame) {
-    // console.log(frame);
     if (frame.people.length < 1) {
       return false;
     }
@@ -83,7 +77,6 @@ var frames = {
   },
 
   is_left_wrist_raised: function (frame) {
-    // console.log(frame);
     if (frame.people.length < 1) {
       return false;
     }
