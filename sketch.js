@@ -35,7 +35,15 @@ var frames = {
             button.setAttribute('hidden', '');
           });
           current_page = 'game';
-          //placeBoxRandomly();
+          var box = document.querySelector('#box');
+          var maxX = window.innerWidth - box.offsetWidth;
+          var maxY = window.innerHeight - box.offsetHeight;
+          
+          var randomX = Math.random() * maxX;
+          var randomY = Math.random() * maxY;
+          
+          box.style.left = randomX + 'px';
+          box.style.top = randomY + 'px';
         }
       } else if (current_page == 'instructions') {
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
@@ -108,18 +116,6 @@ var frames = {
     }
     return false;
   },
-
-  placeBoxRandomly() {
-    var box = document.getElementById('box');
-    var maxX = window.innerWidth - box.offsetWidth;
-    var maxY = window.innerHeight - box.offsetHeight;
-    
-    var randomX = Math.random() * maxX;
-    var randomY = Math.random() * maxY;
-    
-    box.style.left = randomX + 'px';
-    box.style.top = randomY + 'px';
-  }
 };
 
 var twod = {
