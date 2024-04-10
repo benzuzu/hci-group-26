@@ -46,6 +46,8 @@ var frames = {
           document.querySelector('#instructions').setAttribute('hidden', '');
           current_page = 'home';
         }
+      } else if (current_page == 'game') {
+        placeBoxRandomly();
       }
     }
   },
