@@ -15,13 +15,14 @@ var frames = {
     var url = "ws://" + host + "/frames";
     frames.socket = new WebSocket(url);
     frames.socket.onmessage = function (event) {
+      frames.get_pelvis_position(JSON.parse(event.data));
       if (current_page == 'home') {
         var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (left_wrist_raised) {
           console.log("person " + left_wrist_raised + " left wrist raised!");
-          document.querySelector('#instructions').style.display = 'none';
-          document.querySelector('#kinect-window').style.display = 'flex';
+          document.querySelector('#kinect-window').style.display = 'none';
+          document.querySelector('#instructions').style.display = 'flex';
           current_page = 'instructions';
         }
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
@@ -72,7 +73,7 @@ var frames = {
       var right_wrist_y = (frame.people[i].joints[14].position.y - pelvis_y) * -1;
       var right_wrist_z = (frame.people[i].joints[14].position.z - pelvis_z) * -1;
       var right_wrist_x = (frame.people[i].joints[14].position.x - pelvis_x) * -1;
-      console.log("PERSON " + i, right_wrist_x, right_wrist_y, right_wrist_z);
+      // console.log("PERSON " + i, right_wrist_x, right_wrist_y, right_wrist_z);
 
       if (right_wrist_z < 100) {
         continue;
@@ -101,7 +102,7 @@ var frames = {
       var left_wrist_y = (frame.people[i].joints[7].position.y - pelvis_y) * -1;
       var left_wrist_z = (frame.people[i].joints[7].position.z - pelvis_z) * -1;
       var left_wrist_x = (frame.people[i].joints[7].position.x - pelvis_x) * -1;
-      console.log("PERSON " + i, left_wrist_x, left_wrist_y, left_wrist_z);
+      // console.log("PERSON " + i, left_wrist_x, left_wrist_y, left_wrist_z);
 
       if (left_wrist_z < 100) {
         continue;
@@ -116,6 +117,19 @@ var frames = {
     }
     return false;
   },
+
+  get_pelvis_position: function (frame) {
+    if (frame.people.length < 1) {
+      return false;
+    }
+
+    var pelvis_y = frame.people[1].joints[0].position.y;
+    var pelvis_z = frame.people[1].joints[0].position.z;
+    var pelvis_x = frame.people[1].joints[0].position.x;
+
+    console.log(pelvis_x, pelvis_y, pelvis_z);
+    return true;
+  }
 };
 
 var twod = {
