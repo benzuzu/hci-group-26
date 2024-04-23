@@ -12,8 +12,6 @@ html, body {
   }
 
   #score-container {
-    height: 100px;
-    top: 50%;
     font-size: 24px;
     background-color: #FFAC6B;
     display: flex;
