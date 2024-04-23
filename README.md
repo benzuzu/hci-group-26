@@ -1,4 +1,7 @@
 # demo-p5js
+
+Welcome to Frame Frenzy!
+
 Demo of the [p5.js library](https://p5js.org)
 
 This demo implements the classic [Snake game](https://p5js.org/examples/interaction-snake-game.html) on the interactive system for [CPSC 484/584 Intro. to HCI](https://cpsc484-584-hci.gitlab.io/s23/project).
@@ -31,10 +34,7 @@ Three files in this repository define the project's structure:
 + `sketch.js`: defines the game interaction and websocket connection.
 
 Most of the components that actually implement the game are defined in `sketch.js`.
-At a high level, the components defined therein open a websocket to one of the HCI displays, process body tracking data from the Kinect sensor to obtain a command, send that command to the game, and update the game objects and game score.
-The following block diagram illustrates the components defined in `sketch.js`:
-
-![snake game block diagram](./docs/snake_game_block_diagram.png)
+At a high level, the components defined therein open a websocket to one of the HCI displays, process body tracking data from the Kinect sensor to obtain a command, send that command to the game, and update the game objects screen displays.
 
 
 ## Publishing Your Own Changes to This Project
