@@ -1,7 +1,7 @@
 # Introduction
 
-Tired of wasted time between classes?
-Sick of feeling groggy in an afternoon lecture?
+Tired of wasted time between classes? 
+Sick of feeling groggy in an afternoon lecture? 
 Need a quick break?
 
 Welcome to Frame Frenzy!
