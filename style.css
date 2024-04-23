@@ -12,7 +12,6 @@ html, body {
   }
 
   #score-container {
-    height: 80x;
     font-size: 24px;
     background-color: #FFAC6B;
     display: flex;
@@ -77,5 +76,5 @@ html, body {
 
   h1 {
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
