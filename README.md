@@ -24,7 +24,7 @@ The game will require maintaining tough positions and strong balance. Definitely
 
 Task 2: Smile and Laugh
 
-The game will force many funny moments, epic fails, and ecstatic victories. Impossible to play without laughing! These sorts of engaging activities are guaranteed to help students feel more energized and less lethargic for an hour-long lecture.
+The game will force many funny moments, epic fails, and ecstatic victories. It's impossible to play without laughing! These sorts of engaging activities are guaranteed to help students feel more energized and less lethargic for an hour-long lecture.
 
 ## Quickstart
 
@@ -40,7 +40,6 @@ $ pipenv run python src/main.py --data-path data/sample2 --mode play
 
 The default host is `localhost:4444`, which you can modify in `sketch.js`
 
-
 ## System Overview
 
 Three files in this repository define the project's structure:
@@ -52,6 +51,19 @@ Three files in this repository define the project's structure:
 Most of the components that actually implement the game are defined in `sketch.js`.
 At a high level, the components defined therein open a websocket to one of the HCI displays, process body tracking data from the Kinect sensor to obtain a command, send that command to the game, and update the game objects screen displays.
 
+## Collaboration Record
+
+Esmie Hurd (esh53)
+
+Met up to begin making changes to initial prototype, created README document to include information about the game in general, the problem space our group means to address, and the tasks we have implemented as a solution
+
+Ben Xu (bwx2)
+
+Met up to begin making changes to initial prototype, worked to expand game to faciliate multiple levels, improved game performance and transitions between webpages
+
+Claire Qu (cxq2)
+
+Felix Qin (cq63)
 
 ## Publishing Your Own Changes to This Project
 
