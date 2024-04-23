@@ -1,13 +1,16 @@
-# demo-p5js
+# Introduction
+
+Tired of wasted time between classes?
+Sick of feeling groggy in an afternoon lecture?
+Need a quick break?
 
 Welcome to Frame Frenzy!
 
-Demo of the [p5.js library](https://p5js.org)
+This game is a fun, collaborative challenge designed for [CPSC 484/584 Introduction to HCI](https://cpsc484-584-hci.gitlab.io/s23/project).
 
-This demo implements the classic [Snake game](https://p5js.org/examples/interaction-snake-game.html) on the interactive system for [CPSC 484/584 Intro. to HCI](https://cpsc484-584-hci.gitlab.io/s23/project).
+Specifically, the game itself is implemented with aspects of [p5.js](https://p5js.org/) and the spacial data is obtained via a WebSocket.
 
-Specifically, the game itself is implemented with p5.js and the data are obtained via a WebSocket.
-Technical details for the interactive systems are available on the [course website](https://cpsc484-584-hci.gitlab.io/s23/display_tutorial).
+Technical details for the interactive systems are available on the [HCI course website](https://cpsc484-584-hci.gitlab.io/s23/display_tutorial).
 
 
 ## Quickstart
