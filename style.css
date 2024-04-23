@@ -12,6 +12,8 @@ html, body {
   }
 
   #score-container {
+    height: 100px;
+    top: 50%;
     font-size: 24px;
     background-color: #FFAC6B;
     display: flex;
@@ -80,6 +82,7 @@ html, body {
   }
 
   .box {
+    top: 50%;
     position: absolute;
     height: 100px;
     width: 100px;
@@ -88,7 +91,6 @@ html, body {
     font-size: 24px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    vertical-align: middle;
   }
 
   h1 {
