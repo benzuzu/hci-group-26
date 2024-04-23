@@ -1,7 +1,7 @@
 // Adapted from https://p5js.org/examples/interaction-snake-game.html
 //
-// var host = "cpsc484-03.stdusr.yale.internal:8888";
-var host = "localhost:4444";
+var host = "cpsc484-03.stdusr.yale.internal:8888";
+// var host = "localhost:4444";
 $(document).ready(function() {
   frames.start();
   twod.start();
@@ -22,15 +22,15 @@ var frames = {
         var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (left_wrist_raised) {
-          console.log("person " + left_wrist_raised + " left wrist raised!");
+          // console.log("person " + left_wrist_raised + " left wrist raised!");
           document.querySelector('#kinect-window').style.display = 'none';
           document.querySelector('#instructions').style.display = 'flex';
           current_page = 'instructions';
         }
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (right_wrist_raised) {
-          console.log("person " + right_wrist_raised + " right wrist raised!");
-          document.querySelector('#game').style.display = 'flex';
+          // console.log("person " + right_wrist_raised + " right wrist raised!");
+          document.querySelector('#level1').style.display = 'flex';
           document.querySelector('#kinect-window').style.display = 'none';
           document.querySelector('h1').textContent = 'Cover part of the square with your body!';
           var buttons = document.querySelectorAll('.button');
@@ -38,7 +38,8 @@ var frames = {
             button.setAttribute('hidden', '');
           });
           current_page = 'game';
-          var box = document.querySelector('#box');          
+          level = 1;
+          var box = document.querySelector('#box1');          
           box.style.left = '500px';
           box.style.top = '200px';
 
@@ -48,23 +49,44 @@ var frames = {
       } else if (current_page == 'instructions') {
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
         if (right_wrist_raised) {
-          console.log("person " + right_wrist_raised + " right wrist raised!");
+          // console.log("person " + right_wrist_raised + " right wrist raised!");
           document.querySelector('#instructions').style.display = 'none';
-          document.querySelector('#kinect-window').style.display = 'none';
+          document.querySelector('#kinect-window').style.display = 'flex';
           current_page = 'home';
         }
       } else if (current_page == 'game') {
         if (document.querySelector('#timer').textContent == "Time's up!") {
           var bodies = frames.get_all_points(JSON.parse(event.data));
+          const twod = document.querySelector('#l1twod');
+          const canvas = twod.getBoundingClientRect();
+          var found = 0;
           switch (level) {
-            case 1:
+            case 1: {
+              // console.log(1000 - canvas.left);
+              for (const point of bodies) {
+                if (
+                  (point[0] > 500 - canvas.left) && 
+                  (point[0] < 600 - canvas.left) &&
+                  (point[1] > 200) &&
+                  (point[1] < 300)
+                ) {
+                  document.querySelector('#level1').style.display = 'none';
+                  document.querySelector('#success').style.display = 'flex';
+                  current_page = 'success';
+                  found++;
+                }
+              }
+            }
           }
 
-          document.querySelector('#game').style.display = 'none';
-          document.querySelector('#kinect-window').style.display = 'none';
-          console.log(JSON.parse(event.data));
-          console.log(bodies);
-          current_page = 'home';
+          console.log(found, level);
+          if (found < level) {
+            document.querySelector('#level1').style.display = 'none';
+            document.querySelector('#failure').style.display = 'flex';
+            // console.log(JSON.parse(event.data));
+            // console.log(bodies);
+            current_page = 'failure';
+          }
         }
       }
     }
