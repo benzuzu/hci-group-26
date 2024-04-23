@@ -18,7 +18,7 @@
       </div>
       <div class="empty-block"></div>
       <div id="kinect-window">
-        <img class="twod" height="700px"/>
+        <img class="twod" height="720px"/>
       </div>
       <div id="instructions" hidden>
         Once the round starts, you and your friends will have 10 seconds to use your body parts to cover the squares on the screen.
@@ -30,9 +30,16 @@
         <b>Raise your right hand to begin.</b>
       </div>
       <div id="game" hidden>
-        <img class="twod" height="1000px" style="position: relative"/>
+        <img class="twod" height="720px" style="position: relative"/>
         <div id="box">cover me!</div>
+        <div id="timer">10</div>
       </div> 
+      <div id="success" hidden>
+        nice job! onto the next round...
+      </div>
+      <div id="failure" hidden>
+        oh no! you failed...better luck next time
+      </div>
     </div>
     <script src="sketch.js"></script>
   </body>
