@@ -23,6 +23,7 @@ html, body {
 
   .button {
     font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
     background-color: rgb(255, 119, 46);
     border-radius: 10px;
