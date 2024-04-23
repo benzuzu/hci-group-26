@@ -51,17 +51,23 @@ Three files in this repository define the project's structure:
 Most of the components that actually implement the game are defined in `sketch.js`.
 At a high level, the components defined therein open a websocket to one of the HCI displays, process body tracking data from the Kinect sensor to obtain a command, send that command to the game, and update the game objects screen displays.
 
+## Environment Contraints
+
+This game was designed to be played in a relatively spacious place, where 1-4 people can move around freely to complete the levels. This game may be difficult to play in small spaces or with too many people. 
+
 ## Collaboration Record
 
 Esmie Hurd (esh53)
 
-Met up to begin making changes to initial prototype, created README document to include information about the game in general, the problem space our group means to address, and the tasks we have implemented as a solution
+Met up to begin making changes to initial prototype, created README document to include information about the game in general, the problem space our group means to address, and the tasks we have implemented as a solution,
 
 Ben Xu (bwx2)
 
 Met up to begin making changes to initial prototype, worked to expand game to faciliate multiple levels, improved game performance and transitions between webpages
 
 Claire Qu (cxq2)
+
+Met up to begin making changes to initial prototype, 
 
 Felix Qin (cq63)
 
