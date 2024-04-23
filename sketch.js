@@ -62,11 +62,11 @@ var frames = {
           var found = 0;
           switch (level) {
             case 1: {
-              // console.log(1000 - canvas.left);
+              console.log(canvas.left + 730);
               for (const point of bodies) {
                 if (
-                  (point[0] > 500 - canvas.left) && 
-                  (point[0] < 600 - canvas.left) &&
+                  (point[0] > canvas.left + 730) && 
+                  (point[0] < canvas.left + 930) &&
                   (point[1] > 200) &&
                   (point[1] < 300)
                 ) {
@@ -79,12 +79,12 @@ var frames = {
             }
           }
 
-          console.log(found, level);
+          // console.log(found, level);
           if (found < level) {
             document.querySelector('#level1').style.display = 'none';
             document.querySelector('#failure').style.display = 'flex';
             // console.log(JSON.parse(event.data));
-            // console.log(bodies);
+            console.log(bodies);
             current_page = 'failure';
           }
         }
@@ -110,7 +110,6 @@ var frames = {
       if (right_wrist_z < 100) {
         continue;
       }
-
 
       if (right_wrist_x < 300 && right_wrist_x > -50) {
         if (right_wrist_y > 500) {
