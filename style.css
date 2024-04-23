@@ -12,7 +12,7 @@ html, body {
   }
 
   #score-container {
-    height: 40px;
+    height: 100px;
     font-size: 24px;
     background-color: #FFAC6B;
     display: flex;
