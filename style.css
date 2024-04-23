@@ -54,6 +54,30 @@ html, body {
     padding: 200px 50px 200px 50px;
   }
 
+  #success {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    background-color: #fe7da2;
+    grid-column: 1/1;
+    grid-row: 2/3;
+    padding: 200px 50px 200px 50px;
+  }
+
+  #failure {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    background-color: #fe7da2;
+    grid-column: 1/1;
+    grid-row: 2/3;
+    padding: 200px 50px 200px 50px;
+  }
+
   #level1 {
     position: relative;
     justify-content: center;
@@ -80,6 +104,7 @@ html, body {
   }
 
   .box {
+    top: 50%;
     position: absolute;
     height: 100px;
     width: 100px;
@@ -88,7 +113,6 @@ html, body {
     font-size: 24px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    vertical-align: middle;
   }
 
   h1 {

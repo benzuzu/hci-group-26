@@ -63,11 +63,11 @@ Met up to begin making changes to initial prototype, created README document to 
 
 Ben Xu (bwx2)
 
-Met up to begin making changes to initial prototype, worked to expand game to faciliate multiple levels, improved game performance and transitions between webpages
+Met up to begin making changes to initial prototype, worked to expand game to faciliate multiple levels, improved game performance and transitions between webpages, helped test each version of the prototype
 
 Claire Qu (cxq2)
 
-Met up to begin making changes to initial prototype, 
+Met up to begin making changes to initial prototype, worked on front end design, helped test each version of the prototype
 
 Felix Qin (cq63)
 
