@@ -57,7 +57,12 @@ var frames = {
         const timerid = 'timerl' + level;
         if (document.getElementById(timerid).textContent == "Time's up!") {
           var bodies = frames.get_all_points(JSON.parse(event.data));
-          const twod = document.querySelector('#l1twod');
+          var twod = document.querySelector('#l1twod');
+          if (level == 3) {
+            twod = document.querySelector('#l3twod');
+          } else if (level == 5) {
+            twod = document.querySelector('#l5twod');
+          }
           const canvas = twod.getBoundingClientRect();
           var found = new Array(level).fill(false);
           if (bodies) {
@@ -145,7 +150,7 @@ var frames = {
                   if (
                     (point[0] > canvas.left + 430) && 
                     (point[0] < canvas.left + 630) &&
-                    (point[1] > 620) &&
+                    (point[1] > 580) &&
                     (point[1] < 800)
                   ) {
                     found[2] = true;
@@ -158,6 +163,7 @@ var frames = {
 
           // console.log(found, level);
           if (found.includes(false)) {
+            console.log(found);
             const l = '#level' + level;
             document.querySelector(l).style.display = 'none';
             document.querySelector('#failure').style.display = 'flex';
@@ -220,7 +226,7 @@ var frames = {
 
             var box5 = document.querySelector('#box55');          
             box5.style.left = '500px';
-            box5.style.top = '700px';
+            box5.style.top = '600px';
           }
           level += 2;
           const l = '#level' + level;
