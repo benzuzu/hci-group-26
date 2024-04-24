@@ -42,7 +42,7 @@ var frames = {
           box.style.left = '500px';
           box.style.top = '200px';
 
-          let display = document.getElementById('timer');
+          let display = document.getElementById('timerl1');
           frames.start_timer(10, display);
         }
       } else if (current_page == 'instructions') {
@@ -54,46 +54,194 @@ var frames = {
           current_page = 'home';
         }
       } else if (current_page == 'game') {
-        if (document.querySelector('#timer').textContent == "Time's up!") {
+        const timerid = 'timerl' + level;
+        if (document.getElementById(timerid).textContent == "Time's up!") {
           var bodies = frames.get_all_points(JSON.parse(event.data));
           const twod = document.querySelector('#l1twod');
           const canvas = twod.getBoundingClientRect();
           var found = new Array(level).fill(false);
-          switch (level) {
-            case 1: {
-              console.log(canvas.left + 730);
-              for (const point of bodies) {
-                if (
-                  (point[0] > canvas.left + 730) && 
-                  (point[0] < canvas.left + 930) &&
-                  (point[1] > 200) &&
-                  (point[1] < 300)
-                ) {
-                  document.querySelector('#level1').style.display = 'none';
-                  document.querySelector('#success').style.display = 'flex';
-                  current_page = 'success';
-                  found[0] = true;
+          if (bodies) {
+            switch (level) {
+              case 1: {
+                console.log(canvas.left + 730);
+                for (const point of bodies) {
+                  if (
+                    (point[0] > canvas.left + 730) && 
+                    (point[0] < canvas.left + 930) &&
+                    (point[1] > 180) &&
+                    (point[1] < 400)
+                  ) {
+                    found[0] = true;
+                  }
                 }
+                break;
               }
-            }
-            case 4: {
-
+              case 3: {
+                for (const point of bodies) {
+                  if (
+                    (point[0] > canvas.left + 730) && 
+                    (point[0] < canvas.left + 930) &&
+                    (point[1] > 180) &&
+                    (point[1] < 400)
+                  ) {
+                    found[0] = true;
+                  }
+                  if (
+                    (point[0] > canvas.left + 430) && 
+                    (point[0] < canvas.left + 630) &&
+                    (point[1] > 280) &&
+                    (point[1] < 500)
+                  ) {
+                    found[1] = true;
+                  }
+                  if (
+                    (point[0] > canvas.left + 230) && 
+                    (point[0] < canvas.left + 430) &&
+                    (point[1] > 580) &&
+                    (point[1] < 800)
+                  ) {
+                    found[2] = true;
+                  }
+                }
+                break;
+              }
+              case 5: {
+                for (const point of bodies) {
+                  if (
+                    (point[0] > canvas.left + 730) && 
+                    (point[0] < canvas.left + 930) &&
+                    (point[1] > 180) &&
+                    (point[1] < 400)
+                  ) {
+                    found[0] = true;
+                  }
+                  if (
+                    (point[0] > canvas.left + 430) && 
+                    (point[0] < canvas.left + 630) &&
+                    (point[1] > 280) &&
+                    (point[1] < 500)
+                  ) {
+                    found[1] = true;
+                  }
+                  if (
+                    (point[0] > canvas.left + 230) && 
+                    (point[0] < canvas.left + 430) &&
+                    (point[1] > 580) &&
+                    (point[1] < 800)
+                  ) {
+                    found[2] = true;
+                  }
+                  if (
+                    (point[0] > canvas.left + 30) && 
+                    (point[0] < canvas.left + 280) &&
+                    (point[1] > 0) &&
+                    (point[1] < 200)
+                  ) {
+                    found[2] = true;
+                  }
+                  if (
+                    (point[0] > canvas.left + 430) && 
+                    (point[0] < canvas.left + 630) &&
+                    (point[1] > 620) &&
+                    (point[1] < 800)
+                  ) {
+                    found[2] = true;
+                  }
+                }
+                break;
+              }
             }
           }
 
           // console.log(found, level);
           if (found.includes(false)) {
-            document.querySelector('#level1').style.display = 'none';
+            const l = '#level' + level;
+            document.querySelector(l).style.display = 'none';
             document.querySelector('#failure').style.display = 'flex';
+            document.querySelector('h1').textContent = 'Nooo :(';
             // console.log(JSON.parse(event.data));
             console.log(bodies);
             current_page = 'failure';
-          }
+            let display = document.getElementById('timer2');
+            frames.start_timer(5, display);
+          } else {
+            if (level == 5) {
+              document.querySelector('#level5').style.display = 'none';
+              document.querySelector('#win').style.display = 'flex';
+              document.querySelector('h1').textContent = 'Yay!';
+            } else if (level == 3) {
+              document.querySelector('#level3').style.display = 'none';
+              document.querySelector('#success').style.display = 'flex';
+              document.querySelector('h1').textContent = 'Well Done!';
+            } else {
+              document.querySelector('#level1').style.display = 'none';
+              document.querySelector('#success').style.display = 'flex';
+              document.querySelector('h1').textContent = 'Nice!';
+            }
+
+            current_page = 'success';
+            let display = document.getElementById('timer1');
+            frames.start_timer(5, display);
+          } 
         }
       } else if (current_page == 'success') {
+        if (document.querySelector('#timer1').textContent == "Time's up!") {
+          if (level == 1) {
+            var box1 = document.querySelector('#box31');          
+            box1.style.left = '500px';
+            box1.style.top = '200px';
 
+            var box2 = document.querySelector('#box32');          
+            box2.style.left = '800px';
+            box2.style.top = '300px';
+
+            var box3 = document.querySelector('#box33');          
+            box3.style.left = '1000px';
+            box3.style.top = '600px';
+          } else if (level == 3) {
+            var box1 = document.querySelector('#box51');          
+            box1.style.left = '500px';
+            box1.style.top = '200px';
+
+            var box2 = document.querySelector('#box52');          
+            box2.style.left = '800px';
+            box2.style.top = '300px';
+
+            var box3 = document.querySelector('#box53');          
+            box3.style.left = '1000px';
+            box3.style.top = '600px';
+
+            var box4 = document.querySelector('#box54');          
+            box4.style.left = '1200px';
+            box4.style.top = '0px';
+
+            var box5 = document.querySelector('#box55');          
+            box5.style.left = '500px';
+            box5.style.top = '700px';
+          }
+          level += 2;
+          const l = '#level' + level;
+          const t = 'timerl' + level;
+          let display = document.getElementById(t);
+          frames.start_timer(10, display);
+          document.querySelector(l).style.display = 'flex';
+          document.querySelector('#success').style.display = 'none';
+          document.querySelector('h1').textContent = 'Cover part of the square with your body!';
+          current_page = 'game';
+        }
       } else if (current_page == 'failure') {
-        
+        if (document.querySelector('#timer2').textContent == "Time's up!") {
+          level = 1;
+          document.querySelector('#kinect-window').style.display = 'flex';
+          document.querySelector('#failure').style.display = 'none';
+          document.querySelector('h1').textContent = "Let's Play Frame Frenzy!";
+          current_page = 'home';
+          var buttons = document.querySelectorAll('.button');
+          buttons.forEach(function(button) {
+            button.removeAttribute('hidden');
+          });
+          // location.reload();
+        }
       }
     }
   },
@@ -161,7 +309,7 @@ var frames = {
           display.textContent = timer;
           console.log("tick");
 
-          if (--timer < 0) {
+          if (--timer <= 0) {
               clearInterval(intervalId);
               display.textContent = "Time's up!";
           }
