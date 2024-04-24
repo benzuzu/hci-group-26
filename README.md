@@ -24,7 +24,7 @@ The game will require maintaining tough positions and strong balance. Definitely
 
 Task 2: Smile and Laugh
 
-The game will force many funny moments, epic fails, and ecstatic victories. It's impossible to play without laughing! These sorts of engaging activities are guaranteed to help students feel more energized and less lethargic for an hour-long lecture.
+The game will force many funny moments, epic fails, and ecstatic victories. It's impossible to play without laughing! Since the main game itself gets its participants to move about and contort their bodies together in funny ways, it is highly likely that this feature will create funny moments that make users laugh. Also, any sort of game that you can play with friends is an opportunity to socialize and chat. These sorts of engaging activities are guaranteed to help students feel more energized and less lethargic for an hour-long lecture.
 
 ## Quickstart
 
