@@ -143,7 +143,7 @@ var frames = {
                     (point[0] > canvas.left) && 
                     (point[0] < canvas.left + 280) &&
                     (point[1] > 0) &&
-                    (point[1] < 200)
+                    (point[1] < 250)
                   ) {
                     found[3] = true;
                   }
@@ -222,7 +222,7 @@ var frames = {
 
             var box4 = document.querySelector('#box54');          
             box4.style.left = '1200px';
-            box4.style.top = '0px';
+            box4.style.top = '70px';
 
             var box5 = document.querySelector('#box55');          
             box5.style.left = '500px';
@@ -249,7 +249,7 @@ var frames = {
           buttons.forEach(function(button) {
             button.removeAttribute('hidden');
           });
-          // location.reload();
+          location.reload();
         }
       }
     }
