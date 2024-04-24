@@ -187,35 +187,35 @@ var frames = {
       } else if (current_page == 'success') {
         if (document.querySelector('#timer1').textContent == "Time's up!") {
           if (level == 1) {
-            var box1 = document.querySelector('#box1');          
+            var box1 = document.querySelector('#box31');          
             box1.style.left = '500px';
             box1.style.top = '200px';
 
-            var box2 = document.querySelector('#box2');          
+            var box2 = document.querySelector('#box32');          
             box2.style.left = '800px';
             box2.style.top = '300px';
 
-            var box3 = document.querySelector('#box3');          
+            var box3 = document.querySelector('#box33');          
             box3.style.left = '1000px';
             box3.style.top = '600px';
           } else if (level == 3) {
-            var box1 = document.querySelector('#box1');          
+            var box1 = document.querySelector('#box51');          
             box1.style.left = '500px';
             box1.style.top = '200px';
 
-            var box2 = document.querySelector('#box2');          
+            var box2 = document.querySelector('#box52');          
             box2.style.left = '800px';
             box2.style.top = '300px';
 
-            var box3 = document.querySelector('#box3');          
+            var box3 = document.querySelector('#box53');          
             box3.style.left = '1000px';
             box3.style.top = '600px';
 
-            var box4 = document.querySelector('#box4');          
+            var box4 = document.querySelector('#box54');          
             box4.style.left = '1200px';
             box4.style.top = '0px';
 
-            var box5 = document.querySelector('#box5');          
+            var box5 = document.querySelector('#box55');          
             box5.style.left = '500px';
             box5.style.top = '700px';
           }

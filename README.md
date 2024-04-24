@@ -12,6 +12,10 @@ Specifically, the game itself is implemented with aspects of [p5.js](https://p5j
 
 Technical details for the interactive systems are available on the [HCI course website](https://cpsc484-584-hci.gitlab.io/s23/display_tutorial).
 
+## How to Run
+
+No extra dependency installation is needed! Just simply open the index.html file in your browser and play.
+
 ## Problem Space and Solutions
 
 At Yale, classes are usually around 15 minutes apart from each other. During these times, often referred to as “passing periods”, students often feel bored in lecture halls or seminar rooms waiting for class to begin. There's usually an awkward amount of downtime that feels as if it goes to waste, but not enough to do work or other important activities. This can cause boredom, or worse, sleepiness, before a lecture, and will significantly degrade the quality of learning for students once we aggregate this impact over multiple lectures in a single day. Students need to be in the right mindset going into 50-75 minute lectures, and current pre-class activities don’t seem to be achieving this.
@@ -25,20 +29,6 @@ The game will require maintaining tough positions and strong balance. Definitely
 Task 2: Smile and Laugh
 
 The game will force many funny moments, epic fails, and ecstatic victories. It's impossible to play without laughing! These sorts of engaging activities are guaranteed to help students feel more energized and less lethargic for an hour-long lecture.
-
-## Quickstart
-
-Clone this repository and open `index.html` in a web browser.
-Note that you must be connected to the Yale network.
-
-To quickly view the game responding to actual data, start the [recorder utility](https://github.com/Yale-CPSC484-HCI/recorder) in play mode:
-
-```
-$ cd ~/recorder
-$ pipenv run python src/main.py --data-path data/sample2 --mode play
-```
-
-The default host is `localhost:4444`, which you can modify in `sketch.js`
 
 ## System Overview
 
