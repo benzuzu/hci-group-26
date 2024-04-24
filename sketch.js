@@ -77,6 +77,9 @@ var frames = {
                 break;
               }
               case 3: {
+                console.log(canvas.left + 730);
+                console.log(canvas.left + 430);
+                console.log(canvas.left + 230);
                 for (const point of bodies) {
                   if (
                     (point[0] > canvas.left + 730) && 
