@@ -34,7 +34,8 @@ html, body {
   }
 
   #kinect-window {
-    display: flex;
+    display: grid;
+    left: 50%;
     justify-content: center;
     align-items: center;
     background-color: #fe7da2;
@@ -101,6 +102,20 @@ html, body {
     background-color: #fe7da2;
     grid-column: 1/1;
     grid-row: 2/3;
+  }
+
+  #timer {
+    top: 50%;
+    display: grid;
+    align-items: center;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    color: white;
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    background-color:rgb(255, 119, 46);
   }
 
   .box {
