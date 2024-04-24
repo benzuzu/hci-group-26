@@ -105,11 +105,10 @@ html, body {
   }
 
   #timer {
-    top: 50%;
+    top: 0%;
     display: grid;
-    align-items: center;
     position: absolute;
-    height: 100px;
+    height: 30px;
     width: 100px;
     color: white;
     font-size: 24px;
