@@ -142,8 +142,8 @@ var frames = {
                   if (
                     (point[0] > canvas.left) && 
                     (point[0] < canvas.left + 280) &&
-                    (point[1] > 0) &&
-                    (point[1] < 250)
+                    (point[1] > 100) &&
+                    (point[1] < 350)
                   ) {
                     found[3] = true;
                   }
@@ -174,6 +174,9 @@ var frames = {
             let display = document.getElementById('timer2');
             frames.start_timer(5, display);
           } else {
+            current_page = 'success';
+            let display = document.getElementById('timer1');
+            frames.start_timer(5, display);
             if (level == 5) {
               document.querySelector('#level5').style.display = 'none';
               document.querySelector('#win').style.display = 'flex';
@@ -187,10 +190,6 @@ var frames = {
               document.querySelector('#success').style.display = 'flex';
               document.querySelector('h1').textContent = 'Nice!';
             }
-
-            current_page = 'success';
-            let display = document.getElementById('timer1');
-            frames.start_timer(5, display);
           } 
         }
       } else if (current_page == 'success') {
@@ -222,7 +221,7 @@ var frames = {
 
             var box4 = document.querySelector('#box54');          
             box4.style.left = '1200px';
-            box4.style.top = '70px';
+            box4.style.top = '170px';
 
             var box5 = document.querySelector('#box55');          
             box5.style.left = '500px';
