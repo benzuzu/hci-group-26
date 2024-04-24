@@ -14,7 +14,7 @@ Technical details for the interactive systems are available on the [HCI course w
 
 ## How to Run
 
-No extra dependency installation is needed! Just simply open the index.html file in your browser and play.
+No extra dependency installation is needed! We are only running static js. Simply open the path to the index.html file in your browser and play (make sure the js and css files are in the same directory, but this should be the default).
 
 ## Problem Space and Solutions
 
@@ -41,54 +41,27 @@ Three files in this repository define the project's structure:
 Most of the components that actually implement the game are defined in `sketch.js`.
 At a high level, the components defined therein open a websocket to one of the HCI displays, process body tracking data from the Kinect sensor to obtain a command, send that command to the game, and update the game objects screen displays.
 
-## Environment Contraints
+## Environment Constraints
 
 This game was designed to be played in a relatively spacious place, where 1-4 people can move around freely to complete the levels. This game may be difficult to play in small spaces or with too many people. 
+
+The game also REQUIRES the Kinect Sensor, and it must be angled toward the participants. Other than that, however, there are no additional constraints.
 
 ## Collaboration Record
 
 Esmie Hurd (esh53)
 
-Met up to begin making changes to initial prototype, created README document to include information about the game in general, the problem space our group means to address, and the tasks we have implemented as a solution, helped test each
+Met up to begin making changes to initial prototype, created README document to include information about the game in general, the problem space our group means to address, and the tasks we have implemented as a solution, helped test each version of the prototype. Helped style the frontend code (css + html).
 
 Ben Xu (bwx2)
 
-Met up to begin making changes to initial prototype, worked to expand game to faciliate multiple levels, improved game performance and transitions between webpages, helped test each version of the prototype
+Met up to begin making changes to initial prototype, worked to expand game to faciliate multiple levels, improved game performance and transitions between webpages, helped test each version of the prototype. Wrote the backend code (JS + HTML). 
 
 Claire Qu (cxq2)
 
-Met up to begin making changes to initial prototype, worked on front end design, helped test each version of the prototype
+Met up to begin making changes to initial prototype, worked on front end design, helped test each version of the prototype. Stress tested the final product.
 
 Felix Qin (cq63)
 
-Met up to continue adding changes to incorporate multiple levels and improved game performance, helped edit README and front end design
+Met up to continue adding changes to incorporate multiple levels and improved game performance, helped edit README and front end design. Stress tested the final product.
 
-## Publishing Your Own Changes to This Project
-
-In order to publish changes that you make to this project, you should fork this repository and push changes to that fork.
-
-Here are the steps, in order:
-1. Fork this repo by following the instructions in the [GitHub documentation on forks](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
-2. Clone the forked repository. Make sure to clone the URL for SSH authentication!
-
-```
-$ cd ~
-$ git clone git@github.com:<your forked repo>
-$ cd ~/demo-p5js
-```
-
-3. Make any changes to the files in your cloned repository.
-4. Commit and push to your cloned repository
-
-```
-$ cd ~/demo-p5js
-$ git add <files you edited>
-$ git commit -m "helpful commit message!"
-$ git push origin main
-```
-
-5. The pushed changes should be visible on GitHub!
-
-If you cloned the repository with HTTPS instead of SSH, you will get an authentication error when trying to push.
-To convert the remote URL to SSH, follow [this GitHub tutorial on managing remote repositories](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
-If you haven't yet configured an SSH key for your GitHub account, you should follow [this GitHub tutorial on adding SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
