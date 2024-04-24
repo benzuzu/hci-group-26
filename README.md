@@ -59,7 +59,7 @@ This game was designed to be played in a relatively spacious place, where 1-4 pe
 
 Esmie Hurd (esh53)
 
-Met up to begin making changes to initial prototype, created README document to include information about the game in general, the problem space our group means to address, and the tasks we have implemented as a solution,
+Met up to begin making changes to initial prototype, created README document to include information about the game in general, the problem space our group means to address, and the tasks we have implemented as a solution, helped test each
 
 Ben Xu (bwx2)
 
@@ -70,6 +70,8 @@ Claire Qu (cxq2)
 Met up to begin making changes to initial prototype, worked on front end design, helped test each version of the prototype
 
 Felix Qin (cq63)
+
+Met up to continue adding changes to incorporate multiple levels and improved game performance, helped edit README and front end design
 
 ## Publishing Your Own Changes to This Project
 
