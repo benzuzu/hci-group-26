@@ -68,11 +68,11 @@ var frames = {
           if (bodies) {
             switch (level) {
               case 1: {
-                console.log(canvas.left + 730);
+                console.log(canvas.left + 700);
                 for (const point of bodies) {
                   if (
-                    (point[0] > canvas.left + 730) && 
-                    (point[0] < canvas.left + 930) &&
+                    (point[0] > canvas.left + 700) && 
+                    (point[0] < canvas.left + 900) &&
                     (point[1] > 180) &&
                     (point[1] < 400)
                   ) {
@@ -82,29 +82,29 @@ var frames = {
                 break;
               }
               case 3: {
-                console.log(canvas.left + 730);
+                console.log(canvas.left + 700);
                 console.log(canvas.left + 430);
                 console.log(canvas.left + 230);
                 for (const point of bodies) {
                   if (
-                    (point[0] > canvas.left + 730) && 
-                    (point[0] < canvas.left + 930) &&
+                    (point[0] > canvas.left + 700) && 
+                    (point[0] < canvas.left + 900) &&
                     (point[1] > 180) &&
                     (point[1] < 400)
                   ) {
                     found[0] = true;
                   }
                   if (
-                    (point[0] > canvas.left + 430) && 
-                    (point[0] < canvas.left + 630) &&
+                    (point[0] > canvas.left + 400) && 
+                    (point[0] < canvas.left + 600) &&
                     (point[1] > 280) &&
                     (point[1] < 500)
                   ) {
                     found[1] = true;
                   }
                   if (
-                    (point[0] > canvas.left + 230) && 
-                    (point[0] < canvas.left + 430) &&
+                    (point[0] > canvas.left + 200) && 
+                    (point[0] < canvas.left + 400) &&
                     (point[1] > 580) &&
                     (point[1] < 800)
                   ) {
@@ -116,44 +116,44 @@ var frames = {
               case 5: {
                 for (const point of bodies) {
                   if (
-                    (point[0] > canvas.left + 730) && 
-                    (point[0] < canvas.left + 930) &&
+                    (point[0] > canvas.left + 700) && 
+                    (point[0] < canvas.left + 900) &&
                     (point[1] > 180) &&
                     (point[1] < 400)
                   ) {
                     found[0] = true;
                   }
                   if (
-                    (point[0] > canvas.left + 430) && 
-                    (point[0] < canvas.left + 630) &&
+                    (point[0] > canvas.left + 400) && 
+                    (point[0] < canvas.left + 600) &&
                     (point[1] > 280) &&
                     (point[1] < 500)
                   ) {
                     found[1] = true;
                   }
                   if (
-                    (point[0] > canvas.left + 230) && 
-                    (point[0] < canvas.left + 430) &&
+                    (point[0] > canvas.left + 200) && 
+                    (point[0] < canvas.left + 400) &&
                     (point[1] > 580) &&
                     (point[1] < 800)
                   ) {
                     found[2] = true;
                   }
                   if (
-                    (point[0] > canvas.left + 30) && 
+                    (point[0] > canvas.left) && 
                     (point[0] < canvas.left + 280) &&
                     (point[1] > 0) &&
                     (point[1] < 200)
                   ) {
-                    found[2] = true;
+                    found[3] = true;
                   }
                   if (
-                    (point[0] > canvas.left + 430) && 
-                    (point[0] < canvas.left + 630) &&
+                    (point[0] > canvas.left + 400) && 
+                    (point[0] < canvas.left + 600) &&
                     (point[1] > 580) &&
                     (point[1] < 800)
                   ) {
-                    found[2] = true;
+                    found[4] = true;
                   }
                 }
                 break;
