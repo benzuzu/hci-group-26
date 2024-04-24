@@ -17,7 +17,6 @@ var frames = {
     var url = "ws://" + host + "/frames";
     frames.socket = new WebSocket(url);
     frames.socket.onmessage = function (event) {
-      frames.get_pelvis_position(JSON.parse(event.data));
       if (current_page == 'home') {
         var left_wrist_raised = frames.is_left_wrist_raised(JSON.parse(event.data));
         var right_wrist_raised = frames.is_right_wrist_raised(JSON.parse(event.data));
@@ -59,7 +58,7 @@ var frames = {
           var bodies = frames.get_all_points(JSON.parse(event.data));
           const twod = document.querySelector('#l1twod');
           const canvas = twod.getBoundingClientRect();
-          var found = 0;
+          var found = new Array(level).fill(false);
           switch (level) {
             case 1: {
               console.log(canvas.left + 730);
@@ -73,14 +72,17 @@ var frames = {
                   document.querySelector('#level1').style.display = 'none';
                   document.querySelector('#success').style.display = 'flex';
                   current_page = 'success';
-                  found++;
+                  found[0] = true;
                 }
               }
+            }
+            case 4: {
+
             }
           }
 
           // console.log(found, level);
-          if (found < level) {
+          if (found.includes(false)) {
             document.querySelector('#level1').style.display = 'none';
             document.querySelector('#failure').style.display = 'flex';
             // console.log(JSON.parse(event.data));
@@ -88,6 +90,10 @@ var frames = {
             current_page = 'failure';
           }
         }
+      } else if (current_page == 'success') {
+
+      } else if (current_page == 'failure') {
+        
       }
     }
   },
@@ -147,19 +153,6 @@ var frames = {
       }
     }
     return false;
-  },
-
-  get_pelvis_position: function (frame) {
-    if (frame.people.length < 1) {
-      return false;
-    }
-
-    var pelvis_y = frame.people[1].joints[0].position.y;
-    var pelvis_z = frame.people[1].joints[0].position.z;
-    var pelvis_x = frame.people[1].joints[0].position.x;
-
-    // console.log(pelvis_x, pelvis_y, pelvis_z);
-    return true;
   },
 
   start_timer: function (duration, display) {
