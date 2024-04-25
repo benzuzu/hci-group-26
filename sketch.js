@@ -71,7 +71,7 @@ var frames = {
                 console.log(canvas.left + 700);
                 for (const point of bodies) {
                   if (
-                    (point[0] > canvas.left + 700) && 
+                    (point[0] > canvas.left + 650) && 
                     (point[0] < canvas.left + 900) &&
                     (point[1] > 180) &&
                     (point[1] < 400)
@@ -82,12 +82,12 @@ var frames = {
                 break;
               }
               case 3: {
-                console.log(canvas.left + 700);
+                console.log(canvas.left + 650);
                 console.log(canvas.left + 430);
                 console.log(canvas.left + 230);
                 for (const point of bodies) {
                   if (
-                    (point[0] > canvas.left + 700) && 
+                    (point[0] > canvas.left + 650) && 
                     (point[0] < canvas.left + 900) &&
                     (point[1] > 180) &&
                     (point[1] < 400)
@@ -116,7 +116,7 @@ var frames = {
               case 5: {
                 for (const point of bodies) {
                   if (
-                    (point[0] > canvas.left + 700) && 
+                    (point[0] > canvas.left + 650) && 
                     (point[0] < canvas.left + 900) &&
                     (point[1] > 180) &&
                     (point[1] < 400)
@@ -142,8 +142,8 @@ var frames = {
                   if (
                     (point[0] > canvas.left) && 
                     (point[0] < canvas.left + 280) &&
-                    (point[1] > 100) &&
-                    (point[1] < 350)
+                    (point[1] > 0) &&
+                    (point[1] < 330)
                   ) {
                     found[3] = true;
                   }
@@ -174,7 +174,6 @@ var frames = {
             let display = document.getElementById('timer2');
             frames.start_timer(5, display);
           } else {
-            current_page = 'success';
             let display = document.getElementById('timer1');
             frames.start_timer(5, display);
             if (level == 5) {
@@ -190,6 +189,7 @@ var frames = {
               document.querySelector('#success').style.display = 'flex';
               document.querySelector('h1').textContent = 'Nice!';
             }
+            current_page = 'success';
           } 
         }
       } else if (current_page == 'success') {
@@ -221,7 +221,7 @@ var frames = {
 
             var box4 = document.querySelector('#box54');          
             box4.style.left = '1200px';
-            box4.style.top = '170px';
+            box4.style.top = '130px';
 
             var box5 = document.querySelector('#box55');          
             box5.style.left = '500px';
